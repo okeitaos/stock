@@ -1,0 +1,20 @@
+h1{
+  position:relative;
+  font-size:3em; 
+  letter-spacing: 10px;
+  color:#003399;
+  text-transform:uppercase;
+  width:100%;
+  text-align:center;
+  -webkit-box-reflect:below 0px linear-gradient(transparent,#0008); 
+  line-height:0.8em;
+  outline:none;
+  animation: animate 5s linear infinite;
+}
+
+body{
+  background : #000000;
+}
+label{
+  color:#ffffff;
+}
