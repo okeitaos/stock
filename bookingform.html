@@ -438,6 +438,10 @@
                             maxlength="10" minlength="10" required
                             oninput="this.value = this.value.replace(/[^0-9]/g, '')" >
                     </div>
+                    <div class="mb-4">
+                        <label for="cash" class="block text-gray-300 mb-2">จำนวนเงิน</label>
+                        <input type="text" id="name" class="w-full bg-darkgray border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary">
+                    </div>
                 </div>
             </div>
 
@@ -464,6 +468,10 @@
                     <div class="mb-4">
                         <h3 class="text-gray-400 text-sm mb-1">เบอร์โทรศัพท์</h3>
                         <p id="summary-phone" class="font-medium">-</p>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-gray-400 text-sm mb-1">จำนวนเงินกู้</h3>
+                        <p id="summary-cash" class="font-medium">-</p>
                     </div>
                 </div>
             </div>
@@ -559,12 +567,14 @@
             
             const nameInput = document.getElementById('name');
             const phoneInput = document.getElementById('phone');
+            const cashInput = document.getElementById('cash');
             
             const summaryService = document.getElementById('summary-service');
             const summaryDate = document.getElementById('summary-date');
             const summaryTime = document.getElementById('summary-time');
             const summaryName = document.getElementById('summary-name');
             const summaryPhone = document.getElementById('summary-phone');
+            const summaryCash = document.getElementById('summary-cash');
             
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
@@ -990,6 +1000,14 @@
                           });
                             return false;
                         }
+                         if (!cashInput.value.trim()) {
+                           
+                          Toast.fire({
+                            icon: "warning",
+                            title: "กรุณากรอกจำนวนเงินกู้"
+                          });
+                            return false;
+                        }
                   
                         
                         updateSummary();
@@ -1065,6 +1083,7 @@
                 data.append('time', selectedTime);
                 data.append('name', nameInput.value.trim());
                 data.append('phone', phoneInput.value.trim());
+                 data.append('cash', cashInput.value.trim());
                 data.append('userId', userId);
                 data.append('productName' ,productName);
                 data.append('pictureUrl' ,liff.getDecodedIDToken().picture);
