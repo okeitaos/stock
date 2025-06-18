@@ -626,7 +626,7 @@
                    
                    const formattedDate = formatDate(appointment.date);
                    const timesheet = new Date(appointment.time);
-                    const formattedTime =  `${String(timesheet.getUTCHours()).padStart(2, '0')}:${String(timesheet.getUTCMinutes()).padStart(2, '0')} น.`;
+                   const formattedTime =  `${String(timesheet.getUTCHours()).padStart(2, '0')}:${String(timesheet.getUTCMinutes()).padStart(2, '0')} น.`;
                     
                     
                     const card = document.createElement('div');
@@ -649,6 +649,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span class="text-gray-300">${formattedTime}</span>
+                        </div>
+                    
+                         <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-medium">${ appointment.productName}</h3>
                         </div>
                     `;
                     
